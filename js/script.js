@@ -17,6 +17,15 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
+// Create variable which will store all of the list items
+let listItems = document.querySelectorAll('.student-item');
+
+// Create a variable which will store the amount of students that will be displayed
+let listShow = 10;
+
+// Testing 
+console.log(listItems)
+console.log(listShow)
 
 
 
@@ -34,6 +43,20 @@ FSJS project 2 - List Filter and Pagination
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
+
+function showPage(list, page){
+let startIndex = (page * list) - list ;
+let lastIndex = page * list;
+
+      for(i = 0; i < listItems.length; i++){
+
+            if(listItems[i] > startIndex && list[i] < lastIndex){
+
+            }
+         
+      }
+
+}
 
 
 
