@@ -21,11 +21,11 @@ FSJS project 2 - List Filter and Pagination
 let listItems = document.querySelectorAll('.student-item');
 
 // Create a variable which will store the amount of students that will be displayed
-let listShow = 10;
+let itemsPerPage = 10;
 
 // Testing 
-console.log(listItems)
-console.log(listShow)
+// console.log(listItems)
+// console.log(itemsPerPage)
 
 
 
@@ -45,18 +45,27 @@ console.log(listShow)
 ***/
 
 function showPage(list, page){
-let startIndex = (page * list) - list ;
-let lastIndex = page * list;
+let startIndex = (page * itemsPerPage) - itemsPerPage ;
+let lastIndex = (page * itemsPerPage) - 1;
 
-      for(i = 0; i < listItems.length; i++){
+      for(i = 0; i < list.length; i++){
 
-            if(listItems[i] > startIndex && list[i] < lastIndex){
-
+            if(i >= startIndex && i <= lastIndex){
+                list[i].style.className = ''
+               //  or add display name with a class that will be visible
+            } else{
+               list[i].style.display = 'none'
             }
+            
          
       }
+     
+
+
 
 }
+
+showPage(listItems, 2)
 
 
 
@@ -65,7 +74,10 @@ let lastIndex = page * list;
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
+function appendPageLinks(){
 
+   
+}
 
 
 
