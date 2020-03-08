@@ -74,12 +74,95 @@ showPage(listItems, 2)
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
-function appendPageLinks(){
+function appendPageLinks(list){
 
+
+  
+   const neededPages = list.length / itemsPerPage;
+
+    // Create Div to store pagination links
+    const div = document.createElement("div");
+    div.className = 'pagination';
+
+   // To append <a> links to
+   const ul = document.createElement("ul");
+
+   // Append ul to the div
+   div.appendChild(ul);
+  
+   // Determine how many pages are needed by dividing the total number of items by the max number of items per page
+   
+   let links;
+   // Make first element child of ul active
+   // Make ul children loopable
+   
+         for(i = 1; i < neededPages; i++){
+            
+            links = document.createElement("a");
+               let li = document.createElement('li');
+               links.href = '#';
+               links.textContent = i;
+               links.className = 'active';
+               li.appendChild(links)
+               ul.appendChild(li)
+               
+              console.log(links)
+
+              links.addEventListener('click', (e)=>{
+                 console.log("ok, clicked")
+              })
+         }
+
+        
+         
+
+               
+               
+
+         
+
+
+
+          
+
+
+   // Get hold of parent div that newly created div will be appended to
+   const parentDiv = document.querySelector(".page");
+
+   
+
+  
+   parentDiv.appendChild(div);
+  
    
 }
 
+appendPageLinks(listItems)
 
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
+
+
+
+
+
+
+
+
+// create pagination links
+
+   // num1.textContent = 1;
+   // num1.className = 'active'
+
+   // 2
+   // let num2 = document.createElement("a")
+   // num2.textContent = 2;
+
+   // 3
+   // let num3 = document.createElement("a")
+   // num3.textContent = 3;
+
+   // 4
+   // let num4 = document.createElement("a")
+   // num4.textContent = 4;
