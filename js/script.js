@@ -51,21 +51,16 @@ let lastIndex = (page * itemsPerPage) - 1;
       for(i = 0; i < list.length; i++){
 
             if(i >= startIndex && i <= lastIndex){
-                list[i].style.className = ''
-               //  or add display name with a class that will be visible
+                list[i].style.display = ''
             } else{
                list[i].style.display = 'none'
             }
             
          
       }
-     
-
-
-
 }
 
-showPage(listItems, 2)
+
 
 
 
@@ -76,68 +71,60 @@ showPage(listItems, 2)
 ***/
 function appendPageLinks(list){
 
-
-  
-   const neededPages = list.length / itemsPerPage;
+        // Determine how many pages are needed by dividing the total number of items by the max number of items per page
+      const neededPages = list.length / itemsPerPage;
 
     // Create Div to store pagination links
     const div = document.createElement("div");
     div.className = 'pagination';
 
-   // To append <a> links to
+   // Create ul elements to append <a> links to
    const ul = document.createElement("ul");
 
    // Append ul to the div
    div.appendChild(ul);
+
+   // Get hold of parent div that newly created div will be appended to
+   let parentDiv = document.querySelector(".page");
+   parentDiv.appendChild(div);
   
-   // Determine how many pages are needed by dividing the total number of items by the max number of items per page
-   
+   // Set variable for <a></a> links
    let links;
    // Make first element child of ul active
    // Make ul children loopable
    
          for(i = 1; i < neededPages; i++){
             
-            links = document.createElement("a");
-               let li = document.createElement('li');
-               links.href = '#';
-               links.textContent = i;
-               links.className = 'active';
-               li.appendChild(links)
-               ul.appendChild(li)
-               
-              console.log(links)
+                  links = document.createElement("a");
+                  let li = document.createElement('li');
+                  links.href = '#';
+                  links.textContent = i;
+                  li.appendChild(links)
+                  ul.appendChild(li)
+                   let listChildren = li.children[0]
+                  console.log(listChildren)
 
-              links.addEventListener('click', (e)=>{
-                 console.log("ok, clicked")
-              })
+
+                              li.addEventListener('click', (e)=>{
+
+                                 let activeClass = e.target;     
+                                 activeClass.className = 'active';  
+                                       showPage(list,e.target.textContent)
+                                 
+                              })
+
+
+
          }
 
-        
-         
-
-               
-               
-
-         
-
-
-
-          
-
-
-   // Get hold of parent div that newly created div will be appended to
-   const parentDiv = document.querySelector(".page");
-
-   
-
-  
-   parentDiv.appendChild(div);
   
    
 }
 
+
+showPage(listItems, 1)
 appendPageLinks(listItems)
+
 
 
 
@@ -150,19 +137,3 @@ appendPageLinks(listItems)
 
 
 
-// create pagination links
-
-   // num1.textContent = 1;
-   // num1.className = 'active'
-
-   // 2
-   // let num2 = document.createElement("a")
-   // num2.textContent = 2;
-
-   // 3
-   // let num3 = document.createElement("a")
-   // num3.textContent = 3;
-
-   // 4
-   // let num4 = document.createElement("a")
-   // num4.textContent = 4;
