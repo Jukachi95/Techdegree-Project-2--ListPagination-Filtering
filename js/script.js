@@ -40,11 +40,13 @@ function showPage(list, page){
 let startIndex = (page * itemsPerPage) - itemsPerPage ;
 let lastIndex = (page * itemsPerPage) - 1;
 
+         // Loop through list parameter
             for(i = 0; i < list.length; i++){
 
-               // If the indexis greater than zero and less than the last item, display
+               // If the index is greater than zero and less than the last item...
                   if(i >= startIndex && i <= lastIndex){
 
+                     // If the index is greater than zero and less than the last item,loop through index and display
                      list[i].style.display = ''
 
 
@@ -133,18 +135,16 @@ function appendPageLinks(list){
 
                   }
 
-  
-   
 }
 
 // Call the functions with appropriate values
+
+// showPage(listItems, 1) will display page 1 on render, showPage(listItems, 2) will display page 2 on render 
 showPage(listItems, 1)
 appendPageLinks(listItems)
 
 
 
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
 
 
 
